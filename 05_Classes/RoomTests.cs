@@ -14,6 +14,8 @@ namespace _05_Classes
             room.Length = 64;
 
             Console.WriteLine(room.Length);
+
+            // A change!!
         }
     }
 }
