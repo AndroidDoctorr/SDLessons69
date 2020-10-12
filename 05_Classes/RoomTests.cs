@@ -9,6 +9,11 @@ namespace _05_Classes
         [TestMethod]
         public void TestMethod1()
         {
+            Room room = new Room();
+            room.Length = 5;
+            room.Length = 64;
+
+            Console.WriteLine(room.Length);
         }
     }
 }
