@@ -53,6 +53,7 @@
     <Compile Include="Challenges.cs" />
     <Compile Include="Greeter.cs" />
     <Compile Include="ClassTests.cs" />
+    <Compile Include="Person.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Vehicle.cs" />
   </ItemGroup>

@@ -49,5 +49,17 @@ namespace _05_Classes
             Greeter greeter = new Greeter();
             greeter.LoopChallenge();
         }
+
+        [TestMethod]
+        public void PersonTest()
+        {
+            Person andrew = new Person("Andrew", "Torr", new DateTime(1985, 9, 22));
+            Vehicle car = new Vehicle(VehicleType.Car, "Journey");
+            andrew.Transport = car;
+
+            Console.WriteLine(andrew.FullName);
+            Console.WriteLine(andrew.Age);
+            Console.WriteLine(andrew.Transport.GetModel());
+        }
     }
 }
