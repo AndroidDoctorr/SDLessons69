@@ -61,5 +61,15 @@ namespace _05_Classes
             Console.WriteLine(andrew.Age);
             Console.WriteLine(andrew.Transport.GetModel());
         }
+
+
+        [TestMethod]
+        public void UserTest()
+        {
+            DateTime birthdate = new DateTime(1985, 9, 22);
+            User user = new User(1, "Andrew", "Torr", birthdate);
+
+            Console.WriteLine(user.GetAgeInYears());
+        }
     }
 }

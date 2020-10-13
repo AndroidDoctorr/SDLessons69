@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static _05_Classes.Examples;
 
 namespace _05_Classes
 {
@@ -36,6 +37,7 @@ namespace _05_Classes
             }
         }
         public Vehicle Transport { get; set; }
+        public Flavor FavoriteFlavor { get; set; }
 
         public Person() { }
         public Person(string firstName, string lastName, DateTime dob)
