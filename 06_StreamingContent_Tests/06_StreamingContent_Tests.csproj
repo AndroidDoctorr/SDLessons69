@@ -51,6 +51,7 @@
   <ItemGroup>
     <Compile Include="StreamingContentTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="StreamingContent_RepoTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
