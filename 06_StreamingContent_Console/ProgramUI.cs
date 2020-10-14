@@ -41,6 +41,7 @@ namespace _06_StreamingContent_Console
                         break;
                     case "2":
                         //Get content by title
+                        ShowContentByTitle();
                         break;
                     case "3":
                         //Create new streaming content
@@ -72,12 +73,7 @@ namespace _06_StreamingContent_Console
 
             foreach (StreamingContent content in listOfContent)
             {
-                Console.WriteLine($"Title: {content.Title}");
-                Console.WriteLine($"Description: {content.Description}");
-                Console.WriteLine($"Star Rating: {content.StarRating}");
-                Console.WriteLine($"Maturity Rating: {content.MaturityRating}");
-                Console.WriteLine($"Genre: {content.Genre}");
-                Console.WriteLine($"Is it family friendly? {content.IsFamilyFriendly}");
+                DisplayContent(content);
             }
 
             Console.WriteLine("Press any key to continue");
@@ -167,6 +163,43 @@ namespace _06_StreamingContent_Console
             {
                 Console.WriteLine("Oops something went wrong. Your content was not added.");
             }
+        }
+
+        private void ShowContentByTitle()
+        {
+            Console.Clear();
+
+            Console.WriteLine("Enter the title of the content you'd like to see.");
+            string title = Console.ReadLine();
+
+            StreamingContent content = _repo.GetContentByTitle(title);
+
+            if (content != null)
+            {
+                DisplayContent(content);
+            }
+            else
+            {
+                Console.WriteLine("That title doesn't exist.");
+            }
+                Console.ReadKey();
+        }
+
+        //Method that prompts user for which StreamingContent object they want to delete (use the title to find it)
+        //remove it from the _contentDirectory.
+
+        //Bonus: Display all the options for them to select from 
+
+        //work until 2:15
+
+        private void DisplayContent(StreamingContent content)
+        {
+            Console.WriteLine($"Title: {content.Title}");
+            Console.WriteLine($"Description: {content.Description}");
+            Console.WriteLine($"Star Rating: {content.StarRating}");
+            Console.WriteLine($"Maturity Rating: {content.MaturityRating}");
+            Console.WriteLine($"Genre: {content.Genre}");
+            Console.WriteLine($"Is it family friendly? {content.IsFamilyFriendly}");
         }
     }
 }
