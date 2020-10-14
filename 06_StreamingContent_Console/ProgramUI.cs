@@ -52,6 +52,7 @@ namespace _06_StreamingContent_Console
                         break;
                     case "5":
                         // Delete existing content
+                        DeleteContentByTitle();
                         break;
                     case "6":
                         //Exit
@@ -185,6 +186,25 @@ namespace _06_StreamingContent_Console
                 Console.ReadKey();
         }
 
+
+        private void DeleteContentByTitle()
+        {
+            ShowAllContent();
+            Console.WriteLine("Enter the title for the content you would like to delete.");
+            string titleToDelete = Console.ReadLine();
+
+            StreamingContent contentToDelete = _repo.GetContentByTitle(titleToDelete);
+            bool wasDeleted = _repo.DeleteExistingContent(contentToDelete);
+
+            if (wasDeleted)
+            {
+                Console.WriteLine("This content was successfully deleted.");
+            }
+            else
+            {
+                Console.WriteLine("Content could not be deleted");
+            }
+        }
         //Method that prompts user for which StreamingContent object they want to delete (use the title to find it)
         //remove it from the _contentDirectory.
 
