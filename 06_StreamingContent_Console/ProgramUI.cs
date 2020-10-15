@@ -12,48 +12,6 @@ namespace _06_StreamingContent_Console
     {
         private StreamingContent_Repo _repo = new StreamingContent_Repo();
 
-
-
-        public void FizzBuzz(int limit)
-        {
-            for (int index = 1; index <= limit; index++)
-            {
-                //Console.WriteLine((i%3 == 0
-                //  ?
-                //    (i%5 == 0 ? "FizzBuzz" : "Fizz")
-                //  :
-                //    (i%5 == 0 ? "Buzz" : i.ToString())));
-                Thread.Sleep(50);
-
-                if (index % 15 == 0)
-                {
-                    Console.ForegroundColor = ConsoleColor.Magenta;
-                    Console.Write("Fizz");
-                    Console.ForegroundColor = ConsoleColor.Cyan;
-                    Console.Write("Buzz\n");
-                }
-                else if (index % 5 == 0)
-                {
-                    Console.ForegroundColor = ConsoleColor.Blue;
-                    Console.WriteLine("Buzz");
-                }
-                else if (index % 3 == 0)
-                {
-                    Console.ForegroundColor = ConsoleColor.Red;
-                    Console.WriteLine("Fizz");
-                }
-                else
-                {
-                    Console.ForegroundColor = ConsoleColor.White;
-                    Console.WriteLine(index);
-                }
-            }
-        }
-
-
-
-
-
         public void Run()
         {
             SeedContent();

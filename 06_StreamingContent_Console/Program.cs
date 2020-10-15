@@ -11,9 +11,7 @@ namespace _06_StreamingContent_Console
         static void Main(string[] args)
         {
             ProgramUI ui = new ProgramUI();
-            // ui.Run();
-            ui.FizzBuzz(100);
-            Console.ReadKey();
+            ui.Run();
         }
 
         
