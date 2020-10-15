@@ -55,6 +55,10 @@
       <Project>{F61C6EAB-603D-43A3-9FFD-4444DF296945}</Project>
       <Name>06_StreamingContent_Repository</Name>
     </ProjectReference>
+    <ProjectReference Include="..\08_Interfaces\08_Interfaces.csproj">
+      <Project>{4501b0f1-fba5-435e-85a8-78b69616d8ff}</Project>
+      <Name>08_Interfaces</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
