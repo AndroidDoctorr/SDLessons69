@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace _06_StreamingContent_Console
@@ -11,9 +12,72 @@ namespace _06_StreamingContent_Console
     {
         private StreamingContent_Repo _repo = new StreamingContent_Repo();
 
+
+
+        public void FizzBuzz(int limit)
+        {
+            for (int index = 1; index <= limit; index++)
+            {
+                //Console.WriteLine((i%3 == 0
+                //  ?
+                //    (i%5 == 0 ? "FizzBuzz" : "Fizz")
+                //  :
+                //    (i%5 == 0 ? "Buzz" : i.ToString())));
+                Thread.Sleep(50);
+
+                if (index % 15 == 0)
+                {
+                    Console.ForegroundColor = ConsoleColor.Magenta;
+                    Console.Write("Fizz");
+                    Console.ForegroundColor = ConsoleColor.Cyan;
+                    Console.Write("Buzz\n");
+                }
+                else if (index % 5 == 0)
+                {
+                    Console.ForegroundColor = ConsoleColor.Blue;
+                    Console.WriteLine("Buzz");
+                }
+                else if (index % 3 == 0)
+                {
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.WriteLine("Fizz");
+                }
+                else
+                {
+                    Console.ForegroundColor = ConsoleColor.White;
+                    Console.WriteLine(index);
+                }
+            }
+        }
+
+
+
+
+
         public void Run()
         {
+            SeedContent();
             Menu();
+        }
+
+        private void SeedContent()
+        {
+            StreamingContent futureWar = new StreamingContent(
+                "Future War", 
+                "a war in the future",
+                10.0,
+                Genre.SciFi,
+                MaturityRating.G
+            );
+            StreamingContent theRoom = new StreamingContent(
+                "The Room",
+                "Everyone betrays Johnny and he's fed up with this world",
+                10.0,
+                Genre.Documentary,
+                MaturityRating.G
+            );
+            _repo.AddContentToDirectory(futureWar);
+            _repo.AddContentToDirectory(theRoom);
         }
 
         private void Menu()
@@ -48,7 +112,8 @@ namespace _06_StreamingContent_Console
                         CreateNewContent();
                         break;
                     case "4":
-                        //Update existing content
+                        // Update existing content
+                        UpdateExistingContent();
                         break;
                     case "5":
                         // Delete existing content
@@ -64,6 +129,61 @@ namespace _06_StreamingContent_Console
                         break;
                 }
             }
+        }
+
+        private void UpdateExistingContent()
+        {
+            // Finish this method
+            Console.Clear();
+            Console.WriteLine("Enter the title of the content you'd like to update.");
+            string title = Console.ReadLine();
+            StreamingContent oldItem = _repo.GetContentByTitle(title);
+
+            if (oldItem == null)
+            {
+                Console.WriteLine("Content not found, press any key to continue...");
+                Console.ReadKey();
+                return;
+            }
+
+            StreamingContent newItem = new StreamingContent(
+                oldItem.Title,
+                oldItem.Description,
+                oldItem.StarRating,
+                oldItem.Genre,
+                oldItem.MaturityRating
+            );
+
+            Console.WriteLine("Which property would you like to update:\n" +
+                    "1. Title\n" +
+                    "2. Description\n" +
+                    "3. Star Rating\n" +
+                    "4. Maturity Rating\n" +
+                    "5. Genre\n" +
+                    "6. Nevermind");
+
+            string selection = Console.ReadLine();
+            switch (selection)
+            {
+                case "1":
+                    Console.WriteLine("Enter a new title");
+                    string newTitle = Console.ReadLine();
+                    newItem.Title = newTitle;
+
+                    bool wasSuccessful = _repo.UpdateExistingContent(title, newItem);
+
+                    if (wasSuccessful)
+                    {
+                        Console.WriteLine("Item successfully updated");
+                    } else
+                    {
+                        Console.WriteLine($"Error: Could not update {title}");
+                    }
+                    break;
+                default:
+                    break;
+            }
+
         }
 
         private void ShowAllContent()
