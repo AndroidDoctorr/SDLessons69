@@ -41,6 +41,45 @@ namespace _06_StreamingContent_Repository
             MaturityRating = maturityRating;
         }
 
+        public DateTime EnrollmentDate
+        {
+            get;set;
+        }
+
+        public int YearsWithCompany
+        {
+            get {
+                return (int)Math.Round((DateTime.Now - EnrollmentDate).TotalDays / 365);
+            }
+        }
+
+        public int GetYearsWithCompany()
+        {
+            return (int)Math.Round((DateTime.Now - EnrollmentDate).TotalDays / 365);
+        }
+
+        public bool IsGoldMember
+        {
+            get
+            {
+                if (YearsWithCompany > 5)
+                {
+                    Console.WriteLine("I love goooooooooold!!");
+                    return true;
+                }
+                return false;
+            }
+        }
+
+        public string GetGreetingMessage()
+        {
+            if (IsGoldMember)
+            {
+                return "Hello Gold Member, thank you for being loyal customer humon";
+            }
+            return "Go away";
+        }
+
     }
     public enum Genre
     {
