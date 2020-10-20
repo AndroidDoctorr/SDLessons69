@@ -41,6 +41,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Content\Movie.cs" />
+    <Compile Include="Content\Show.cs" />
     <Compile Include="StreamingContent.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="StreamingContent_Repo.cs" />
