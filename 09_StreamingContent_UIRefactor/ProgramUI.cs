@@ -54,8 +54,27 @@ namespace _09_StreamingContent_UIRefactor
                 MaturityRating.G,
                 99.0
             );
+            Show redDwarf = new Show();
+            redDwarf.Title = "Red Dwarf";
+            redDwarf.MaturityRating = MaturityRating.PG;
+            redDwarf.Description = "A human, a robot, a hologram, and a cat try to survive 3 million years into deep space. Hilarity ensues.";
+            redDwarf.Genre = Genre.SciFi;
+
+            List<Episode> episodes = new List<Episode>();
+            // Make an episode and then add it
+            Episode episode = new Episode();
+            episode.Title = "Tikka to Ride";
+            episode.SeasonNumber = 7;
+            episodes.Add(episode);
+            // Make and add an episode on the same line
+            episodes.Add(new Episode("The End", 45, 1));
+            episodes.Add(new Episode("Psirens", 45, 6));
+
+            redDwarf.Episodes = episodes;
+
             _repo.AddContentToDirectory(futureWar);
             _repo.AddContentToDirectory(theRoom);
+            _repo.AddContentToDirectory(redDwarf);
         }
 
         private void Menu()
