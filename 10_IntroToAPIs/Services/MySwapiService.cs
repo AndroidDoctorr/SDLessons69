@@ -3,9 +3,11 @@ using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web;
 
 namespace _10_IntroToAPIs.Services
 {
@@ -27,16 +29,17 @@ namespace _10_IntroToAPIs.Services
             return null;
         }
 
-        public async Task PostCharacterAsync(Character character)
+        public async Task<HttpStatusCode> PostCharacterAsync(Character character)
         {
-            string json = JsonConvert.SerializeObject(character);
-
-            HttpContent data = new StringContent(json, Encoding.UTF8, "application/json");
-
-            HttpResponseMessage response = await _httpClient.PostAsync(baseUrl + "people/", data);
-
-            // string result = response.Content.ReadAsStringAsync().Result;
-            // return result;
+            Dictionary<string, string> characterData = new Dictionary<string, string>
+            {
+                { "name", character.Name },
+                { "gender", character.Gender },
+                { "homeworld", character.Homeworld.ToString() }
+            };
+            HttpContent content = new FormUrlEncodedContent(characterData);
+            HttpResponseMessage response = await _httpClient.PostAsync(baseUrl + "people/", content);
+            return response.StatusCode;
         }
 
         public async Task<CharacterWithHomeworld> GetCharacterWithHomeworldAsync(int id)

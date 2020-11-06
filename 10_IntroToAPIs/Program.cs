@@ -3,6 +3,7 @@ using _10_IntroToAPIs.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
@@ -34,10 +35,17 @@ namespace _10_IntroToAPIs
             Console.Clear();
             Console.WriteLine("\n\nSaving new character...");
 
-            swapiService.PostCharacterAsync(newCharacter).Wait();
+            int statusCode = (int) swapiService.PostCharacterAsync(newCharacter).Result;
 
             Console.Clear();
-            Console.WriteLine("New character created!");
+            if (statusCode == 200)
+            {
+                Console.WriteLine("\n\nNew character created!");
+            }
+            else
+            {
+                Console.WriteLine("\n\nError saving character: " + statusCode);
+            }
 
             Console.ReadKey();
 
