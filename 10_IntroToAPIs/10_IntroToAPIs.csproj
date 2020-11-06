@@ -49,10 +49,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Models\Character.cs" />
+    <Compile Include="Models\CharacterWithHomeworld.cs" />
     <Compile Include="Models\Person.cs" />
+    <Compile Include="Models\Planet.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SwapiService.cs" />
+    <Compile Include="Services\MySwapiService.cs" />
+    <Compile Include="Services\SwapiService.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
