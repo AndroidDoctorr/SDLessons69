@@ -14,8 +14,10 @@ namespace _10_IntroToAPIs.Services
     public class MySwapiService
     {
         private readonly HttpClient _httpClient = new HttpClient();
+        // The API is here:
         private readonly string baseUrl = "https://us-central1-lateral-incline-114906.cloudfunctions.net/swapi/";
-
+        // The API is on the Back End, meaning the server where the data is hosted.
+        // The Front End is on my computer. This Console App is the Front End
         public async Task<Character> GetCharacterAsync(int id)
         {
             HttpResponseMessage response = await _httpClient.GetAsync(baseUrl + "people/" + id);
