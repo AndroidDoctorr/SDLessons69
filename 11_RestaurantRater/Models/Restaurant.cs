@@ -15,7 +15,6 @@ namespace _11_RestaurantRater.Models
         public string Name { get; set; }
         [Required]
         public string Address { get; set; }
-        [Required]
         public double Rating
         {
             get
