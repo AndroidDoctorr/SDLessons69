@@ -10,7 +10,7 @@ namespace _12_GeneralStore.Controllers
     {
         public ActionResult Index()
         {
-            ViewBag.Title = "Home Page";
+            ViewBag.Title = "General Store API";
 
             return View();
         }

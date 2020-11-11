@@ -39,6 +39,7 @@ namespace _12_GeneralStore.Controllers
 
         // Update
         [HttpPut]
+        [ActionName("Update")]
         public async Task<IHttpActionResult> UpdateProduct([FromUri] int id, [FromBody] Product model)
         {
             if (!ModelState.IsValid)
