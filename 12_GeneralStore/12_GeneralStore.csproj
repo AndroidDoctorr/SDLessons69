@@ -177,6 +177,22 @@
     <Compile Include="Migrations\202011101842464_transaction-migration.designer.cs">
       <DependentUpon>202011101842464_transaction-migration.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202011171952592_removing-virtual-restaurant.cs" />
+    <Compile Include="Migrations\202011171952592_removing-virtual-restaurant.designer.cs">
+      <DependentUpon>202011171952592_removing-virtual-restaurant.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202011172008292_uhhh.cs" />
+    <Compile Include="Migrations\202011172008292_uhhh.designer.cs">
+      <DependentUpon>202011172008292_uhhh.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202011172026522_removed-foreignkey.cs" />
+    <Compile Include="Migrations\202011172026522_removed-foreignkey.designer.cs">
+      <DependentUpon>202011172026522_removed-foreignkey.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202011172029317_added-virtual-transactions.cs" />
+    <Compile Include="Migrations\202011172029317_added-virtual-transactions.designer.cs">
+      <DependentUpon>202011172029317_added-virtual-transactions.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\ApplicationDbContext.cs" />
     <Compile Include="Models\Customer.cs" />
@@ -274,6 +290,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202011101842464_transaction-migration.resx">
       <DependentUpon>202011101842464_transaction-migration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202011171952592_removing-virtual-restaurant.resx">
+      <DependentUpon>202011171952592_removing-virtual-restaurant.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202011172008292_uhhh.resx">
+      <DependentUpon>202011172008292_uhhh.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202011172026522_removed-foreignkey.resx">
+      <DependentUpon>202011172026522_removed-foreignkey.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202011172029317_added-virtual-transactions.resx">
+      <DependentUpon>202011172029317_added-virtual-transactions.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

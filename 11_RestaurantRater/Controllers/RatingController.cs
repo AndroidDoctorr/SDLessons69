@@ -45,7 +45,7 @@ namespace _11_RestaurantRater.Controllers
                     CleanlinessScore = r.CleanlinessScore,
                     EnvironmentScore = r.EnvironmentScore,
                     RestaurantId = r.RestaurantId,
-                    RestaurantName = r.Restaurant.Name,
+                    // RestaurantName = r.Restaurant.Name,
                 })
                 .ToListAsync();
             return Ok(ratings);
