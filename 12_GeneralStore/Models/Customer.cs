@@ -14,6 +14,8 @@ namespace _12_GeneralStore.Models
         public string FirstName { get; set; }
         [Required]
         public string LastName { get; set; }
+
+        // Hopefully this causes a conflict!!
         public virtual List<Transaction> Transactions { get; set; }
     }
 }
