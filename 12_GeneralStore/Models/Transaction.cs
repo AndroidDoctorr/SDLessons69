@@ -24,8 +24,8 @@ namespace _12_GeneralStore.Models
         [Required]
         public int CustomerID { get; set; }
 
-        [ForeignKey(nameof(CustomerID))]
-        public virtual Customer Customer { get; set; }
+        // [ForeignKey(nameof(CustomerID))]
+        // public virtual Customer Customer { get; set; }
 
         [DataType(DataType.DateTime)]
         public DateTime DateofTransaction { get; set; }

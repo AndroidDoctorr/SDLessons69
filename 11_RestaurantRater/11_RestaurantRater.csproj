@@ -169,11 +169,17 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202011172010279_removing-virtual-restaurant.cs" />
+    <Compile Include="Migrations\202011172010279_removing-virtual-restaurant.designer.cs">
+      <DependentUpon>202011172010279_removing-virtual-restaurant.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Rating.cs" />
     <Compile Include="Models\RatingWithoutRestaurant.cs" />
     <Compile Include="Models\Restaurant.cs" />
+    <Compile Include="Models\RestaurantCreate.cs" />
     <Compile Include="Models\RestaurantDbContext.cs" />
+    <Compile Include="Models\RestaurantListItem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -259,6 +265,11 @@
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-3.4.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.4.1.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\202011172010279_removing-virtual-restaurant.resx">
+      <DependentUpon>202011172010279_removing-virtual-restaurant.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

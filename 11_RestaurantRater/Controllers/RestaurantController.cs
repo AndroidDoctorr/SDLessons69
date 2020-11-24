@@ -36,8 +36,21 @@ namespace _11_RestaurantRater.Controllers
         [HttpGet]
         public async Task<IHttpActionResult> Get()
         {
-            List<Restaurant> restaurants = await _context.Restaurants.ToListAsync();
+            // Select is kind of like a conversion
+            List<RestaurantListItem> restaurants = await _context.Restaurants.Select(r => new RestaurantListItem() {
+                Name = r.Name,
+                Id = r.Id,
+                Rating = r.Rating
+            }).ToListAsync();
             return Ok(restaurants);
+
+            // I can also convert my list of Restaurants into a list of strings
+            // List<string> restaurantNames = _context.Restaurants.Select(r => r.Name).ToList();
+
+            // FirstOrDefault
+            Restaurant restaurant = _context.Restaurants.FirstOrDefault(r => r.Name.StartsWith("B"));
+
+            List<bool> bRestaurants = _context.Restaurants.Select(r => r.Name.StartsWith("B")).ToList();
         }
 
         // GET BY ID
